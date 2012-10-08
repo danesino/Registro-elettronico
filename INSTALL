@@ -1,0 +1,50 @@
+
+#############
+# Requisiti #
+#############
+
+Per installare il registro elettronico è neccessario
+ avere installato i seguenti software:
+
+    * Un server web con supporto SSL; per 
+      es. Apache con SSL configurato
+    * Un server MySQL versioni maggiori al 3.23
+    * PHP versioni 4 e superiori
+    * Pear
+       o DB
+       o HTTP_Upload
+       o HTML_QuickForm
+       o File
+
+##############################
+# Procedura di Installazione #
+##############################
+
+Innanzitutto bisogna scompattare il file compresso 
+nella cartella di DocumentRoot che conterra' il programma. 
+Per procedere con l'installazione bisogna eseguire lo script 
+install.sh con privilegi di root, in questa fase vengono 
+create le cartelle di sistema ed i file di configurazione 
+in /var ed /etc.
+
+Per andare avanti con l'installazione è richiesto avere i
+lnome utente mysql e la password con un utente in grado di 
+creare nuovi database (GRANT CREATE), che verranno inseriti 
+nel file /etc/registro.conf. Eseguito il tutto bisogna 
+creare un registro.
+
+########################
+# Setup nuovo Registro #
+########################
+
+Per installare un nuovo registro, bisogna puntare il proprio 
+browser sulla cartella dove su apache risiede il programma, 
+alla pagina Installer.php verranno chiesti le Creadenziali 
+della nuova Scuola (Indirizzo, e-mail, numeri di 
+telefono etc.. ) ed anche le credenziali dell'Amministratore 
+(nome utente, password, e-mail, cellulare etc...).
+
+Il campo codice registro è il campo con cui vera' 
+poi identificato il dominio con cui ci si deve autenticare 
+al programma.
+

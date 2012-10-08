@@ -1,0 +1,354 @@
+/* Stylesheet per l'applicazione Registro elettronico */
+/* span {
+float:left;
+}
+*/
+a img{
+	border:none;
+}
+body {
+    background-color: #ECF0FF;
+    font-family: 'Arial', 'Trebuchet MS', 'Verdana';
+    color: #000;
+    margin: 0px;
+    font-size: small;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 0em;
+    background-color: #61A5FF;
+    font-size: x-large;
+    border-top: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+    clear: both;
+}
+
+h1.title{
+    background-color: transparent;
+	 color:#0502AE;
+    text-align: center;
+    font-size: x-large;
+	 border: none;
+    clear: both;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 1em;
+    background-color: #B3D1FF;
+    font-size: large;
+    border-top: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+}
+
+h3 {
+    text-align: center;
+    margin-top: 1em;
+    background-color: #BED3FF;
+    font-size: medium;
+    border-top: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+    clear: both;
+}
+
+h4 {
+    padding-left: 10%;
+    text-align: center;
+    margin-top: 1em;
+    background-color: #FF0000;
+    font-size: medium;
+    border-top: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+    clear: both;
+}
+p {
+  /*  margin: 2px 5% 2px 5%;*/
+   font-size: small;
+   margin-top:0;
+   margin-bottom:0;
+}
+ol {
+    margin: 1em 6% 1em 6%;
+}
+
+
+
+/*** CLASSI E DIVS ***/
+
+div.benv{
+	 float:left;
+	 display:none;
+	 -moz-border-radius:12px;
+	 width:15em;
+	 border:2px solid;
+	 padding:3px;
+	 background-color: #ADC7FF;
+}
+div.rel{
+	 text-align:center;
+	 margin:0px auto;
+	 font-weight:bolder;
+	 padding:20px;
+	 color:#aaa;
+}
+.box_errore, dd{	
+		text-align:center;
+    /*position: relative;*/
+    padding: 1em;
+    margin: 0em 20em ;
+    font-size: medium;
+    text-align: center;
+    background-color: #FF9999;
+    border: 2px solid #FF0000;
+}
+.box_successo, dt{
+/*    position: relative;*/
+    padding: 1em;
+    margin: 0em 20em;
+    font-size: medium;
+    text-align: center;
+    background-color: #99FF99;
+    border: 2px solid #00FF00;
+}
+.important {
+    color: #bb0000;
+}
+#main{
+    margin: 0 auto;
+    width: 96%;
+}
+input.obb{
+	 background-color:#ffccaa;
+}
+input~sesso{
+	 background-color:#ffccaa;
+}
+
+/*** TABELLE ***/
+
+table.index{
+	 -moz-border-radius:12px;
+	 border:10px solid #ADC7FF;
+	 border-spacing: 4px;
+	 background-color: #ADC7FF;
+}
+
+.studentidx, .utentidx, .cdcdx{
+	 border:10px solid;
+	 nowrap:nowrap;
+	 text-align:left;
+}
+
+.studentisx, .utentisx, .cdcsx{
+	 border:10px solid;
+	 nowrap:nowrap;
+	 text-align:right;
+	 font-size:x-large;
+	 font-weight:bold;
+}
+
+td.studentisx, td.studentidx{
+	 border-color: #E0E8FF;
+	 background-color:#E0E8FF;
+	 color:#1605FF;
+}
+
+td.utentisx, td.utentidx{
+	 border-color:#F0E2FF;
+	 background-color:#F0E2FF;
+	 color:#700CBC;
+}
+
+td.cdcsx, td.cdcdx{
+	 border-color: #D5FFCC;
+	 background-color:#D5FFCC;
+	 color:#106E26;
+}
+
+table {
+    margin: 0 auto;
+}
+table.elenco{
+	background-color:#6699CC;
+}
+table.elenco td{
+	 padding:3px;
+}
+
+tr.pari, td.pari {
+    background:#DDDDDD;
+}
+tr.dispari, td.dispari {
+    background:#CCCCCC;
+}
+th{
+	 background-color:#C1DADF;
+	 text-align:center;
+}
+td b{
+	 text-align:left;
+	 background:#C1DADF;
+	 display:block;
+}
+
+/*---- SEZIONE del Menu ------*/
+
+.container4 {
+	text-align:center; 
+	background:#eee url(menu/menu4.gif); 
+	border:1px solid #2c76db; 
+	border-width:1px 1px 1px 1px; 
+	height:60px;
+	margin-bottom:20px;
+}
+.menu4 {
+	text-align:left; 
+	font-family: verdana, sans-serif; 
+	position:relative; 
+	font-size:0.85em; 
+	background:transparent; 
+	width:750px; 
+	height:30px; 
+	margin:0 auto;
+}
+.menu4 ul {
+	padding:0; 
+	margin:0; 
+	list-style-type: none;
+}
+.menu4 ul li {
+	float:left; 
+	position:relative;
+}
+
+.menu4 ul li.alunni {background:transparent url(menu/alunni.png);}
+.menu4 ul li.cdc {background:transparent url(menu/docentigr.png) no-repeat;}
+.menu4 ul li.composizione {background:transparent url(menu/composizione.png) no-repeat;}
+.menu4 ul li.email {background:transparent url(menu/mail.png) no-repeat;}
+.menu4 ul li.readmail {background:transparent url(menu/readmail.png) no-repeat;}
+.menu4 ul li.presenze {background:transparent url(menu/elenco.png) no-repeat;}
+.menu4 ul li.docenti {background:transparent url(menu/docenti.png) no-repeat;}
+.menu4 ul li.elenco {background:transparent url(menu/elenco.png) no-repeat;}
+.menu4 ul li.gr_lavoro {background:transparent url(menu/gr_lavoro.png) no-repeat;}
+.menu4 ul li.home {background:transparent url(menu/home.png);}
+.menu4 ul li.indietro {background:transparent url(menu/indietro.png);}
+.menu4 ul li.insert {background:transparent url(menu/insert.png) no-repeat;}
+.menu4 ul li.materie {background:transparent url(menu/materie.png) no-repeat;}
+.menu4 ul li.reparti {background:transparent url(menu/reparti.png) no-repeat;}
+.menu4 ul li.scuole {background:transparent url(menu/scuole.png) no-repeat;}
+.menu4 ul li.stampa {background:transparent url(menu/stampa.png);}
+.menu4 ul li.studenti {background:#eee url(menu/studenti.png) no-repeat;}
+.menu4 ul li.utenti {background:transparent url(menu/utenti.png) no-repeat;}
+.menu4 ul li.logout {background:transparent url(menu/logout.png) no-repeat;}
+.menu4 ul li.statistiche {background:transparent url(menu/composizione.png) no-repeat;}
+
+.menu4 ul li a, .menu4 ul li a:visited {
+	display:block; 
+	text-decoration:none; 
+	width:70px; 
+	height:30px; 
+	color:#000; 
+	padding-left:30px; 
+	line-height:29px;
+}
+* html .menu4 ul li a, .menu4 ul li a:visited {
+	width:200px; 
+	w\idth:70px;
+}
+
+.menu4 ul li ul {
+	visibility:hidden; 
+	position:absolute; 
+	top:0; 
+	left:0;
+}
+table.menu{
+	margin:-1px; 
+	border-collapse:collapse; 
+	font-size:1em;
+}
+
+/* fist line style for IE7 and non-IE browsers and the second line for IE5.5 and IE6 */
+.menu4 ul li:hover a,
+.menu4 ul li a:hover {
+	color:#c00; 
+	text-decoration:underline; 
+	border:0;
+}
+.menu4 ul li:hover ul,
+.menu4 ul li a:hover ul {
+	visibility:visible; 
+	width:170px; 
+	height:auto; 
+	position:absolute; 
+	top:30px; 
+	left:-1px; 
+	background:#fff; 
+	border:1px solid #2c76db;
+}
+.menu4 ul li:hover ul li a,
+.menu4 ul li a:hover ul li a {
+	display:block; 
+	background:transparent; 
+	text-decoration:none; 
+	color:#c00; 
+	height:auto; 
+	line-height:1.5em; 
+	padding:5px 10px 5px 35px; 
+	width:170px; 
+	w\idth:125px;
+}
+.menu4 ul li:hover ul li a.drop,
+.menu4 ul li a:hover ul li a.drop {
+	display:block; 
+	color:#000; 
+	height:auto; 
+	line-height:1.5em; 
+	padding:5px 10px 5px 35px; 
+	width:170px; 
+	w\idth:125px;
+}
+.menu4 ul li:hover ul li ul,
+.menu4 ul li a:hover ul li a ul {
+	visibility:hidden; 
+	position:absolute; 
+	top:0; 
+	left:0;
+}
+.menu4 ul li:hover ul li a:hover,
+.menu4 ul li a:hover ul li a:hover {
+	color:#00f; 
+	text-decoration:underline;
+}
+.menu4 ul li:hover ul li:hover ul,
+.menu4 ul li a:hover ul li a:hover ul {
+	visibility:visible; 
+	position:absolute; 
+	top:0; 
+	color:#000; 
+	left:166px;
+}
+.menu4 ul li:hover ul li:hover ul.left,
+.menu4 ul li a:hover ul li a:hover ul.left {
+	left:-166px;
+}
+.menu4 ul li:hover ul li:hover ul li a,
+.menu4 ul li a:hover ul li a:hover ul li a {
+	display:block; 
+	background:#eee; 
+	color:#00f; 
+	height:auto; 
+	line-height:1.5em; 
+	padding:5px 10px 4px 20px; 
+	width:170px; 
+	w\idth:140px;
+}
+* html .menu4 ul li a:hover ul li a:hover ul li a {padding:4px 10px 4px 20px;}
+
+.menu4 ul li:hover ul li:hover ul li:hover a,
+.menu4 ul li a:hover ul li a:hover ul li a:hover {
+	background:#fff; 
+	color:#000; 
+	text-decoration:underline;
+}

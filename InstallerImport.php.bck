@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <title>Installazione Registro Elettronico</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <style type="text/css">
+   @import url(registro.css);
+  </style>
+  <link rel="shortcut icon" href="favicon.ico" />
+ </head>
+ <body>
+
+<?php
+
+// ----------------------------------------------------------------------
+// Registro elettronico scuole ospedaliere
+// ----------------------------------------------------------------------
+// LICENSE and CREDITS
+// This program is free software and it's released under the terms of the
+// GNU General Public License(GPL)
+// Link: http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt
+// Please READ carefully the Docs/License.txt file for further details
+// Please READ the Docs/credits.txt file for complete credits list
+// ----------------------------------------------------------------------
+// Nome file:  Installazione.php
+// Autore di questo file: Puria Nafisi Azizi (pna) - puria@hipatia.net
+// lug/09: modificato da Sophia Danesino per aggiornamento a versione 3
+// Descrizione: installazione registro elettronico per una scuola
+// ospedaliera (creazione tabelle, caricamento valori iniziali, creazione
+// file di configurazione e predisposizione area per documenti studenti)
+// ----------------------------------------------------------------------
+
+include "/etc/registro.conf";
+
+
+if (isset($_POST['cod_reg_old']))
+{
+// verifica inserimento campi obbligatori
+ if ( empty($_POST['cod_reg_old']) || empty($_POST['cod_reg']) )
+  {
+	 echo "<dd>Errore: I campi in rosso sono Obbligatori:<br />Codice registro da cui importare<br /> Codice registro in cui importare</dd>";
+  }
+ else // ok inserimento dati
+ { 	
+	$reg_old=$_POST['cod_reg_old'];
+	$nome_db_old="Registro_".$_POST['cod_reg_old'];
+	
+	// export tabella scuole e materie
+	exec("mysqldump -u $u -p$p --databases --no-create-info --compact $nome_db_old --tables Scuole > /var/Scuole/$reg_old/scuole.sql");
+	exec("mysqldump -u $u -p$p --databases --no-create-info --compact $nome_db_old --tables Materie > /var/Scuole/$reg_old/materie.sql");
+	
+    if ($_POST['studenti']=='S') {
+		exec("mysqldump -u $u -p$p --databases --no-create-info --compact $nome_db_old --tables Studenti > /var/Scuole/$reg_old/studenti.sql");
+		exec("mysqldump -u $u -p$p --databases --no-create-info --compact $nome_db_old --tables Scuola > /var/Scuole/$reg_old/scuola.sql");
+	}
+    if ($_POST['utenti']=='S')
+		exec("mysqldump -u $u -p$p --databases --no-create-info --compact $nome_db_old --tables Utenti --where='id_utente!=1'  > /var/Scuole/$reg_old/utenti.sql");
+		
+	$reg_new=$_POST['cod_reg'];
+	$nome_db_new="Registro_".$_POST['cod_reg'];
+	
+	// import tabelle scuole e materie
+	exec("mysql -u $u -p$p $nome_db_new  < /var/Scuole/$reg_old/scuole.sql");
+	exec("mysql -u $u -p$p $nome_db_new  < /var/Scuole/$reg_old/materie.sql");
+	
+	// import tabelle studenti e utenti se selezionate
+    if ($_POST['studenti']=='S'	) {
+		exec("mysql -u $u -p$p $nome_db_new  < /var/Scuole/$reg_old/studenti.sql");	
+		exec("mysql -u $u -p$p $nome_db_new  < /var/Scuole/$reg_old/scuola.sql");	
+	}
+    if ($_POST['utenti']=='S')
+		exec("mysql -u $u -p$p $nome_db_new  < /var/Scuole/$reg_old/utenti.sql");
+
+	echo "<dl><dt>Dati importati con sucesso!<br /><br />
+	<a href=\"Login.php\">Accedi al registro</a></dt></dl>";
+	
+	// rimozione file temporanei export da vecchio registro
+	exec("rm /var/Scuole/$reg_old/scuole.sql");
+	exec("rm /var/Scuole/$reg_old/materie.sql");
+    if ($_POST['studenti']=='S'	)	{
+		exec("rm /var/Scuole/$reg_old/studenti.sql");
+		exec("rm /var/Scuole/$reg_old/scuola.sql");
+	}
+	if ($_POST['utenti']=='S')
+		exec("rm /var/Scuole/$reg_old/utenti.sql");
+ }
+}
+else {
+
+?>
+<div class="main">
+<h2>Importazione dati registro scuola ospedaliera</h2>
+<br />
+<form action="<?=$_SERVER['PHP_SELF']?>" method="POST">
+<table border=0>
+<tr>
+ <th>Codice scuola in cui importare</th>
+ <td><input class="obb" type="text" name="cod_reg" value="<?=$_POST['cod_reg']?>" maxlength="30" size="30" alt="Inserire il codice della scuola in cui importare i dati" /></td></tr>
+<tr>
+ <th>Codice scuola da cui importare</th>
+ <td><input class="obb" type="text" name="cod_reg_old" maxlength="30" size="30" alt="Inserire il nome della scuola da cui importare i dati" /></td></tr>
+<tr>
+ <th>Importazione anagrafica studenti</th>
+ <td>SI<input type="radio" name="studenti" value="S">&nbsp;&nbsp;NO<input type="radio" name="studenti" value="N" checked="checked"></td></tr>
+<tr>
+ <th>Importazione anagrafica docenti</th>
+ <td>SI<input type="radio" name="utenti" value="S">&nbsp;&nbsp;NO<input type="radio" name="utenti" value="N" checked="checked"></td></tr>
+
+<tr>
+ <td colspan="2" align="center"><br /><br/><br/><input type="submit" value="Importa" /></td></tr></table></form>
+ </div>
+ </body>
+</html>
+<?php } ?>

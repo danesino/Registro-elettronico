@@ -1,0 +1,23 @@
+Modifiche versione 4.2
+------------------------------------------------------
+1. DB: tabella registro, aggiunto campo voto DECIMAL(4,2)
+2. GestioneClasse.php: gestione gruppo di lavoro, l'icona di cancellazione separata dalle altre
+3. CompilaRegistro.php: aggiunto campo voto  (attenzione: non pulisce il campo valutazione precedente), aggiunto bottone per compilazione registro di un altro studente su stesso gruppo e stessa materia
+3. Modificaregistro.php: aggiunto campo voto, modifiche per bottone inserito in Compilaregistro.php
+4. Dettaglioperiodo.php: aggiunto campo voto, tolte info studente per privacy
+5. StampaDettaglioperiodo.php: aggiunto campo voto, tolte info studente per privacy
+6. DettaglioperiodoAnnuale.php: aggiunto campo voto, tolte info studente per privacy
+7. StampaDettaglioperiodoAnnuale.php: aggiunto campo voto, tolte info studente per privacy
+4. DettaglioperiodoSpecifico.php: aggiunto campo voto, tolte info studente per privacy
+5. StampaDettaglioperiodoSpecifico.php: aggiunto campo voto, tolte info studente per privacy
+6. Statistiche.php: aggiunto calcolo numero stranieri suddivisi per paese d'origine
+7. Installer.php e InstallerImport.php: scelta e importazione studenti e docenti (attenzione: 2 amministratori)
+8. Inviamessaggio.php: invio messaggio a più utenti
+9. Indice-doc.php: aggiunto menù archivio messaggi
+10.VisualizzaMessaggi.php: correzione per visualizzazione messaggi già letti.
+11. Prospettodegenze.php: prospetto dettagliato degenze multiple
+
+Autore: Sophia Danesino
+Data: 24 luglio 2010
+
+
